@@ -20,9 +20,11 @@ class Produce extends React.Component {
 
   }
   save(){
-    var val = this.refs.newText.value;
-    console.log("new comment" + val);
-    this.props.updatedName(this.refs.newText.value, this.props.index);
+    var val1 = this.refs.newText1.value;
+    var val2 = this.refs.newText2.value;
+    var val3 = this.refs.newText3.value;
+    
+    this.props.updatedName(val1, val2, val3, this.props.index);
     this.setState({editing:false});
   }
   handleClick() {
@@ -91,7 +93,12 @@ class Produce extends React.Component {
   renderForm() {
     return (
       <div>
-        <textarea ref="newText" defaultValue={this.props.name}></textarea>
+        <textarea ref="newText1" defaultValue={this.props.name}></textarea>
+        <textarea ref="newText2" defaultValue={this.props.price}></textarea>
+
+        <textarea ref="newText3" defaultValue={this.props.quantity}></textarea>
+
+
         <button onClick={this.save}>Save</button>
       </div>
     );
@@ -115,6 +122,7 @@ Produce.propTypes = {
   photo: PropTypes.string,
   quantity: PropTypes.string,
   index: PropTypes.number,
+
 };
 
 export default Produce;

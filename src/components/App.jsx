@@ -157,10 +157,13 @@ class App extends React.Component {
     };
     this.handleAddingMasterProduceList = this.handleAddingMasterProduceList.bind(this);
   }
-  handleAddingMasterProduceList(newText, i) {
+  handleAddingMasterProduceList(newText1, newText2, newText3, i) {
     console.log(this.state.MasterProduceList.name);
     var arr = this.state.MasterProduceList;
-    arr[i].name = newText;
+    arr[i].name = newText1;
+    arr[i].price = newText2;
+    arr[i].quantity = newText3;
+
     this.setState({MasterProduceList: arr });
 
   }
